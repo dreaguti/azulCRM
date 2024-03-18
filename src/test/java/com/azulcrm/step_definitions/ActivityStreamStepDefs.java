@@ -16,7 +16,6 @@ public class ActivityStreamStepDefs{
     }
     @Then("user should see {string} is displayed")
     public void user_should_see_is_displayed(String headerText) {
-        //switch statement?
         BrowserUtils.verifyElementDisplayed(activityStreamPage.messageHeader);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.taskHeader);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.eventHeader);

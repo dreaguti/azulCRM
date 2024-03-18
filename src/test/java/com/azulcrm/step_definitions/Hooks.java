@@ -1,6 +1,5 @@
 package com.azulcrm.step_definitions;
 
-import com.azulcrm.pages.LoginPage;
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.ConfigurationReader;
 import com.azulcrm.utilities.Driver;
@@ -11,13 +10,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
-
 /*
 In this class we will be able to create "pre" and "post" condition
 for ALL the SCENARIOS and even STEPS.
  */
 public class Hooks {
-    LoginPage loginPage = new LoginPage();
+
     //import the @Before coming from io.cucumber.java
     @Before (order = 1)
     public void setupMethod(){
@@ -41,25 +39,19 @@ public class Hooks {
 
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
-
         }
-
-
-
         BrowserUtils.sleep(2);
         Driver.closeDriver();
-
     }
 
     //@BeforeStep
-    public void setupStep(){
-        System.out.println("-----> @BeforeSTEP : Running before each step!");
-    }
+//    public void setupStep(){
+//        System.out.println("-----> @BeforeSTEP : Running before each step!");
+//    }
 
     //@AfterStep
-    public void teardownStep(){
-        System.out.println("-----> @AfterSTEP : Running after each step!");
-    }
-
+//    public void teardownStep(){
+//        System.out.println("-----> @AfterSTEP : Running after each step!");
+//    }
 
 }
