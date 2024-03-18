@@ -6,13 +6,13 @@ import io.cucumber.java.en.Given;
 public class LoginStepDefs {
 
 
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
+    @Given("user is on the login page")
+    public void user_is_on_the_login_page() {
         System.out.println("Login to app in Before method");
     }
 
-    @Given("the user is logged in as {string}")
-    public void the_user_is_logged_in_as(String userType) {
+    @Given("user is logged in as {string} user")
+    public void user_is_logged_in_as_user(String userType) {
         //based on input entered by user
         String username =null;
         String password =null;
@@ -31,8 +31,8 @@ public class LoginStepDefs {
         new LoginPage().login(username,password);
     }
 
-    @Given("the user logged in with username as {string} and password as {string}")
-    public void the_user_logged_in_with_username_as_and_password_as(String username, String password) {
+    @Given("user is logged in with username as {string} and password as {string}")
+    public void user_is_logged_in_with_username_as_and_password_as(String username, String password) {
       LoginPage loginPage=new LoginPage();
       loginPage.login(username,password);
     }

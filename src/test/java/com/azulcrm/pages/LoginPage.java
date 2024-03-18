@@ -2,6 +2,7 @@ package com.azulcrm.pages;
 
 
 import com.azulcrm.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,20 +14,23 @@ public class LoginPage {
     }
 
     @FindBy(name = "USER_LOGIN")
-    public WebElement userName;
+    public WebElement usernameInput;
 
     @FindBy(name = "USER_PASSWORD")
-    public WebElement password;
+    public WebElement passwordInput;
 
     @FindBy(className = "login-btn")
-    public WebElement submit;
+    public WebElement submitButton;
 
+    @FindBy(id = "user-name")
+    public WebElement usernameHeaderAtLogin;
 
     public void login(String userNameStr, String passwordStr) {
-        userName.sendKeys(userNameStr);
-        password.sendKeys(passwordStr);
-        submit.click();
+        usernameInput.sendKeys(userNameStr);
+        passwordInput.sendKeys(passwordStr);
+        submitButton.click();
         // verification that we logged in
+        Assert.assertEquals(usernameHeaderAtLogin.getText(), userNameStr);
     }
 
 }
