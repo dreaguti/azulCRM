@@ -1,22 +1,14 @@
 package com.azulcrm.step_definitions;
 
 import com.azulcrm.pages.ActivityStreamPage;
-import com.azulcrm.pages.LoginPage;
 import com.azulcrm.utilities.BrowserUtils;
-import com.azulcrm.utilities.ConfigurationReader;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import java.util.List;
-
-
-public class ActivityStreamStepDefs extends LoginPage{
+public class ActivityStreamStepDefs{
 
     ActivityStreamPage activityStreamPage = new ActivityStreamPage();
-    LoginPage loginPage = new LoginPage();
 
     @When("user is on the Activity Stream page")
     public void user_is_on_the_activity_stream_page() {
@@ -38,7 +30,7 @@ public class ActivityStreamStepDefs extends LoginPage{
     }
 
     @Then("user should see {string} option is displayed")
-    public void user_should_see_option_is_displayed(String optionsText) {
+    public void user_should_see_option_is_displayed(String optionText) {
         BrowserUtils.verifyElementDisplayed(activityStreamPage.fileOption);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.appreciationOption);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.announcementOption);

@@ -29,9 +29,6 @@ public class ActivityStreamPage {
     @FindBy (id = "feed-add-post-form-link-text")
     public WebElement moreHeader;
 
-    @FindBy (xpath = "//div[@class='menu-popup-items']")
-    public WebElement moreDropdown;
-
     @FindBy (xpath = "//div[@class='menu-popup-items']//span[1]//span[2]")
     public WebElement fileOption;
 

@@ -1,9 +1,5 @@
 package com.azulcrm.step_definitions;
 
-
-
-
-import com.azulcrm.pages.ActivityStreamPage;
 import com.azulcrm.pages.LoginPage;
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.ConfigurationReader;
