@@ -3,6 +3,8 @@ package com.azulcrm.step_definitions;
 
 
 
+import com.azulcrm.pages.ActivityStreamPage;
+import com.azulcrm.pages.LoginPage;
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.ConfigurationReader;
 import com.azulcrm.utilities.Driver;
@@ -19,17 +21,16 @@ In this class we will be able to create "pre" and "post" condition
 for ALL the SCENARIOS and even STEPS.
  */
 public class Hooks {
-
+    LoginPage loginPage = new LoginPage();
     //import the @Before coming from io.cucumber.java
     @Before (order = 1)
     public void setupMethod(){
 
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    //@Before (value = "@login", order = 2 )
+    @Before (value = "@login", order = 2 )
     public void login_scenario_before(){
         System.out.println("---> @Before: RUNNING BEFORE EACH SCENARIO");
     }
