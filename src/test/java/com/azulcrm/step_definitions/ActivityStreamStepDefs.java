@@ -15,7 +15,7 @@ public class ActivityStreamStepDefs{
         Assert.assertTrue(activityStreamPage.ActivityStreamHeader.isDisplayed());
     }
     @Then("user should see {string} is displayed")
-    public void user_should_see_is_displayed(String headerText) {
+    public void user_should_see_is_displayed() {
         //switch statement?
         BrowserUtils.verifyElementDisplayed(activityStreamPage.messageHeader);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.taskHeader);
@@ -30,7 +30,7 @@ public class ActivityStreamStepDefs{
     }
 
     @Then("user should see {string} option is displayed")
-    public void user_should_see_option_is_displayed(String optionText) {
+    public void user_should_see_option_is_displayed() {
         BrowserUtils.verifyElementDisplayed(activityStreamPage.fileOption);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.appreciationOption);
         BrowserUtils.verifyElementDisplayed(activityStreamPage.announcementOption);
