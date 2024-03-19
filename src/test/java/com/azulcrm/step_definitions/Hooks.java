@@ -10,12 +10,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
-
 /*
 In this class we will be able to create "pre" and "post" condition
 for ALL the SCENARIOS and even STEPS.
  */
 public class Hooks {
+
     //import the @Before coming from io.cucumber.java
     @Before (order = 1)
     public void setupMethod(){
