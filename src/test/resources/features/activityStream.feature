@@ -30,7 +30,7 @@ Feature: Users should be able to see all options on the Activity Stream Page
 
 #  @AC2-Dynamic
 #  Scenario Outline: Activity Stream Page - Dropdown Options Verification
-#    Given user is logged in as "<userType>" user
+#    Given user is logged in as "hr" user
 #    When user is on the Activity Stream page
 #    And clicks on More dropdown
 #    Then user should see "<headerText>" is displayed
