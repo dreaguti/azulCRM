@@ -434,6 +434,12 @@ public class BrowserUtils {
 
     }
 
+
+
+
+    public static void switchToFrame(WebElement frameElement) {
+        Driver.getDriver().switchTo().frame(frameElement);
+    }
     /**
      * executes the given JavaScript command on given web element
      *
