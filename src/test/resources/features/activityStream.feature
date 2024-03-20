@@ -16,6 +16,7 @@ Feature: Users should be able to see all options on the Activity Stream Page
     And user is logged in as "<userType>" user
     And user is on the Activity Stream page
     Then user should see "<headerText>" is displayed
+
     Examples:
       | userType  | headerText                       |
       | hr        | Message, Text, Event, Poll, More |
