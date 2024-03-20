@@ -1,12 +1,11 @@
+@US88
 Feature: As a user, I want to access the Employees page.
 
-Background:
-  Given user is logged in as "hr" user
-
   @US88-TC1
-  Scenario: Verify the users view following 8 modules in the Employees page.
+  Scenario Outline: Verify the users view following 8 modules in the Employees page.
+    Given user is logged in as "<userType>" user
     When user clicks employees page
-    Then user sees below modules
+    Then user able to see following modules
       | Company Structure   |
       | Find Employee       |
       | Telephone Directory |
@@ -15,4 +14,14 @@ Background:
       | Honored Employees   |
       | Birthdays           |
       | New page            |
+      | More                |
 
+    Examples:
+      | userType  |
+      | hr        |
+      | helpdesk  |
+      | marketing |
+
+  @US88-TC2
+  Scenario: Verify that user see the Company Structure by default
+    Then user see "Company Structure" page title

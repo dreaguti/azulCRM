@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/azulcrm/step_definitions",
-        dryRun = true,
-        tags = "@US88-TC1",
+        dryRun = false,
+        tags = "@US88",
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
