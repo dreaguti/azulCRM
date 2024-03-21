@@ -18,14 +18,14 @@ public class EmployeesPage_StepDefs {
 
     CRM_EmployeesPage employeesPage = new CRM_EmployeesPage ();
 
-    @When("user clicks employees page")
-    public void userClicksEmployeesPage() {
+    @When("user clicks employees pages")
+    public void userClicksEmployeesPages() {
         employeesPage.employeeClick.click();
     }
 
     WebDriverWait webDriverWait = new WebDriverWait (Driver.getDriver (), Duration.ofSeconds (15));
-    @Then("user able to see following modules")
-    public void userAbleToSeeFollowingModules(List<String> expectedEightModules) {
+    @Then("user able to see following module")
+    public void userAbleToSeeFollowingModule(List<String> expectedEightModules) {
 
         List<String> actualEightModules = new ArrayList<> ();
 
