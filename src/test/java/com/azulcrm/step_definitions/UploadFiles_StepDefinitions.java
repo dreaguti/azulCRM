@@ -1,14 +1,10 @@
 package com.azulcrm.step_definitions;
 
 import com.azulcrm.pages.UploadFilesPage;
-import io.cucumber.java.en.Given;
+import com.azulcrm.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
-import java.sql.Driver;
-import java.sql.DriverAction;
 
 public class UploadFiles_StepDefinitions {
 
@@ -22,10 +18,12 @@ public class UploadFiles_StepDefinitions {
     }
     @When("User click Upload files button")
     public void user_click_upload_files_button() {
+        BrowserUtils.sleep(1);
         upload.upLoadFilesButton.click();
     }
     @When("User click Uploads files and images box")
     public void user_click_uploads_files_and_images_box() {
+        BrowserUtils.sleep(1);
        upload.UploadFilesAndImagesBox.click();
     }
     @Then("User upload files and images")

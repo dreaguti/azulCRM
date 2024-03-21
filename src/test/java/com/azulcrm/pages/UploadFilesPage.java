@@ -19,7 +19,7 @@ public class UploadFilesPage {
    @FindBy(id = "bx-b-uploadfile-blogPostForm")
    public WebElement upLoadFilesButton;
 
-   @FindBy(xpath = "(//input[@type='file'])[1]")
+   @FindBy(xpath = "(//div[@class='diskuf-uploader'])[1]")
    public WebElement UploadFilesAndImagesBox;
 
    public String docxPath = "C:\\Users\\dilme\\OneDrive\\Documentos\\Sellenium File and Picture verification\\Challenges1.docx";
