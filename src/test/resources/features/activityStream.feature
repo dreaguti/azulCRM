@@ -4,8 +4,7 @@ Feature: Users should be able to see all options on the Activity Stream Page
   Background: User is already on the login page
     Given user is on the login page
 
-  @AC1
-#  Activity Stream Page - Options Verification
+#  AC1 - Activity Stream Page - Options Verification
   Scenario Outline: Verify that <userType> user can view the following options on the Activity Stream page.
   Message
   Task
@@ -23,9 +22,7 @@ Feature: Users should be able to see all options on the Activity Stream Page
       | helpdesk  | Message, Text, Event, Poll, More |
       | marketing | Message, Text, Event, Poll, More |
 
-
-  @AC2
-#  Activity Stream Page - More Options Verification
+# AC2 -  Activity Stream Page - More Options Verification
   Scenario Outline: Verify that <userType> user can view the following 4 options under the MORE tab.
   File
   Appreciation
