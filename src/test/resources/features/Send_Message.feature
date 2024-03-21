@@ -1,10 +1,10 @@
 @B32G21-156
-Feature: Default
+Feature: Feature : MESSAGE functionality 
 
 	
 	@B32G21-153
 	Scenario:  Verify that the user can send a message by filling in the mandatory fields.
-		Feature : MESSAGE functionality 
+		
 		 Scenarios :User should be able to send the massage by clicking the tab in the Activity Stream 
 		 Given user is logged in as "<userType>" user
 		When User clicks message option on the page .
