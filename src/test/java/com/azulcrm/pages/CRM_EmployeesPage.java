@@ -21,6 +21,9 @@ public class CRM_EmployeesPage {
     @FindBy(xpath = "//a[@class='main-buttons-item-link']")
     public List<WebElement> listOfWebElements;
 
+    @FindBy(xpath = "//*[@id=\"pagetitle\"]")
+    public WebElement comStructureHeaderName;
+
 
 
 

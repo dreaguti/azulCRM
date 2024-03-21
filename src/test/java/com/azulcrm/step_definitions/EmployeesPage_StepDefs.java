@@ -2,6 +2,7 @@ package com.azulcrm.step_definitions;
 
 import com.azulcrm.pages.CRM_EmployeesPage;
 import com.azulcrm.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -35,11 +36,9 @@ public class EmployeesPage_StepDefs {
 
         Assert.assertEquals (expectedEightModules, actualEightModules);
     }
-
-    @Then("user see {string} page title")
-    public void userSeePageTitle(String expectedTitle) {
-
-        //Assert.assertEquals (Driver.getDriver ().getTitle (),expectedTitle);
+    @Then("user sees {string} page title")
+    public void userSeesPageTitle(String actualTitle) {
+        String expectedTitle = "(1) Company Structure";
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
-
 }

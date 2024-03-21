@@ -1,7 +1,7 @@
-@US884
+@US8846
 Feature: As a user, I want to access the Employees page.
 
-  @US88-TC123
+
   Scenario Outline: Verify the users view following 8 modules in the Employees page.
     Given user is logged in as "<userType>" user
     When user clicks employees pages
@@ -22,6 +22,12 @@ Feature: As a user, I want to access the Employees page.
       | helpdesk  |
       | marketing |
 
-  @US88-TC2345
-  Scenario: Verify that user see the Company Structure by default
-    Then user see "Company Structure" page title
+  Scenario Outline: Verify that user see the Company Structure by default
+    Given user is logged in as "<userType>" user
+    When user clicks employees pages
+    Then user sees "(1) Company Structure" page title
+    Examples:
+      | userType  |
+      | hr        |
+      | helpdesk  |
+      | marketing |
