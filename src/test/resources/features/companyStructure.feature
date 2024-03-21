@@ -1,5 +1,5 @@
 @B32G21-163
-Feature: As a user, I should be able to use functions on Company Structure under Employee menu.
+Feature: Company Structure under Employee menu
 
   @B32G21-160
   Scenario Outline: All user types should be able to display company structure.
