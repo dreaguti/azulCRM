@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.w3c.dom.html.HTMLFrameElement;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -435,11 +436,11 @@ public class BrowserUtils {
     }
 
 
-
-
     public static void switchToFrame(WebElement frameElement) {
         Driver.getDriver().switchTo().frame(frameElement);
+
     }
+
     /**
      * executes the given JavaScript command on given web element
      *
@@ -450,7 +451,6 @@ public class BrowserUtils {
         jse.executeScript(command);
 
     }
-
 
     /**
      * This method will recover in case of exception after unsuccessful the click,
