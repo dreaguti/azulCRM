@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class AppreciationTestPage extends LoginPage {
 
 
-    public AppreciationTestPage(){
+    public AppreciationTestPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -27,14 +27,27 @@ public class AppreciationTestPage extends LoginPage {
     public WebElement messageBox;
 
     @FindBy(xpath = "//span[@class='feed-add-post-del-but']")
-    public WebElement undefault;
+    public WebElement defaultAllEmployees;
 
     @FindBy(xpath = "//a[@class='feed-add-destination-link']")
     public WebElement addMore;
+    @FindBy(id = "feed-add-post-destination-input")
+    public WebElement emailUser;
 
-    @FindBy(id ="blog-submit-button-save")
+
+    @FindBy(xpath = "(//form[@enctype='multipart/form-data'])[1]")
+    public WebElement Iframe;
+
+    @FindBy(id = "blog-submit-button-save")
     public WebElement sendButton;
+
+    @FindBy(xpath = "//span[.='Please specify at least one person.']")
+    public WebElement specifyMessage;
 
     @FindBy(id = "blog-submit-button-cancel")
     public WebElement cancelBtn;
+
+
+    @FindBy(xpath = "//span[.='The message title is not specified']")
+    public WebElement specifyMessage1;
 }
