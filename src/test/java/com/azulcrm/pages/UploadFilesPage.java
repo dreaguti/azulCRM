@@ -13,7 +13,7 @@ public class UploadFilesPage {
     }
 
 
-   @FindBy(xpath = "//input[@id='bxed_idPostFormLHE_blogPostForm']")
+   @FindBy(xpath = "//span[@class='feed-add-post-micro-title']")
     public WebElement messageBox;
 
    @FindBy(id = "bx-b-uploadfile-blogPostForm")
