@@ -24,7 +24,7 @@ public class EmployeesPage_StepDefs {
         employeesPage.employeeClick.click();
     }
 
-    WebDriverWait webDriverWait = new WebDriverWait (Driver.getDriver (), Duration.ofSeconds (15));
+    WebDriverWait webDriverWait = new WebDriverWait (Driver.getDriver (), Duration.ofSeconds (10));
     @Then("user able to see following module")
     public void userAbleToSeeFollowingModule(List<String> expectedEightModules) {
 
@@ -41,4 +41,6 @@ public class EmployeesPage_StepDefs {
         String expectedTitle = "(1) Company Structure";
         Assert.assertEquals(expectedTitle, actualTitle);
     }
+
+
 }
