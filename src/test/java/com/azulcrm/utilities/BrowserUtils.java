@@ -3,6 +3,7 @@ package com.azulcrm.utilities;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -137,6 +138,14 @@ public class BrowserUtils {
         }
         Driver.getDriver().switchTo().window(origin);
     }
+
+    public static void switchToFrame(WebElement frameElement) {
+        Driver.getDriver().switchTo().frame(frameElement);
+
+    }
+
+
+
 
     /**
      * Moves the mouse to given element
@@ -436,11 +445,6 @@ public class BrowserUtils {
     }
 
 
-    public static void switchToFrame(WebElement frameElement) {
-        Driver.getDriver().switchTo().frame(frameElement);
-
-    }
-
     /**
      * executes the given JavaScript command on given web element
      *
@@ -489,6 +493,9 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
+
+
 
 
 }

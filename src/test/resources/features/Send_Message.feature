@@ -1,49 +1,25 @@
 @B32G21-156
-Feature: Default
+Feature:MESSAGE functionality
 
-	
-	@B32G21-153
-	Scenario:  Verify that the user can send a message by filling in the mandatory fields.
-		Feature : MESSAGE functionality 
-		 Scenarios :User should be able to send the massage by clicking the tab in the Activity Stream 
-		 Given user is logged in as "<userType>" user
-		When User clicks message option on the page .
-		And user enter a message "Test"
-		And user clicks Send button 
-		Then user sees the message sent 
-		 Examples:
-		      | userType  |
-		      | hr        |
-		      | helpdesk  |
-		      | marketing |	
 
-	
-	@B32G21-154
-	Scenario Outline: Verify that the message delivery is to 'All employees' by default.
-		Given user is logged in as "<userType>" user
-		When User clicks message option on the page .
-		And user enter a message "Test"
-		And user clicks Send button 
-		Then user sees the message sent 
-		Then user sees the 'All employees' option is selected by default.
-		    Examples:
-		      | userType  |
-		      | hr        |
-		      | helpdesk  |
-		      | marketing |	
+  @B
+ Scenario: Verify that the user can send a message by filling in the mandatory fields.
+    #Given user is logged in login page
+    When User clicks message option on the page .
 
-	
-	@B32G21-155
-	Scenario Outline: verify user be able to cancel send message at any time before sending 
-		Given user is logged in as "<userType>" user
-		When User clicks message option on the page .
-		And user enter a message "Test"
-		And user clicks Send button 
-		Then user sees the message sent 
-		Then user sees the 'All employees' option is selected by defaul.
-		And user be able to cancel send message at any time before send it 
-		    Examples:
-		      | userType  |
-		      | hr        |
-		      | helpdesk  |
-		      | marketing |
+    And user write something inside the body of the text box
+    Then user click on the send button
+
+
+
+
+Scenario: The message delivery should be to 'All employees' by default.
+  When User clicks message option on the page .
+  Then user sees the "All empoyees"option by default
+  And user undefault All employees option
+  Then user click on the send button
+  Then user sees the error message
+
+  Scenario: User should be able to cancel sending message at any time before sending.
+    When User clicks message option on the page .
+  Then user can cancel send message at any time before sending it
