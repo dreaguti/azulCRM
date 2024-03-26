@@ -1,40 +1,48 @@
 package com.azulcrm.step_definitions;
 
 import com.azulcrm.pages.ActivityStreamPage;
+import com.azulcrm.pages.BasePage;
 import com.azulcrm.utilities.BrowserUtils;
+import com.azulcrm.utilities.CRMUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class ActivityStreamStepDefs{
+import java.util.List;
+
+import static com.azulcrm.utilities.BrowserUtils.getElementsText;
+import static com.azulcrm.utilities.BrowserUtils.sleep;
+
+public class ActivityStreamStepDefs extends BasePage {
 
     ActivityStreamPage activityStreamPage = new ActivityStreamPage();
 
-    @When("user is on the Activity Stream page")
-    public void user_is_on_the_activity_stream_page() {
-        Assert.assertTrue(activityStreamPage.ActivityStreamHeader.isDisplayed());
+    @When("user clicks {string}")
+    public void user_clicks(String option) {
+        activityStreamPage.selectOption(option);
+        sleep(2);
     }
 
-    @Then("user should see {string} is displayed")
-    public void user_should_see_is_displayed(String headerText) {
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.messageHeader);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.taskHeader);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.eventHeader);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.pollHeader);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.moreHeader);
+    @When("user clicks {string} in Activity Stream")
+    public void user_clicks_in_activity_stream(String activity) {
+        activityStreamPage.selectActivity(activity);
     }
 
-    @When("clicks on More dropdown")
-    public void clicks_on_more_dropdown() {
-        activityStreamPage.moreHeader.click();
+
+    @Then("user should see the following options on the Activity Stream page")
+    public void user_should_see_the_following_options_on_the_activity_stream_page(List<String> expectedOptions) {
+        List<String> actualOptions = getElementsText(activityStreamPage.tabOptions);
+        Assert.assertEquals(expectedOptions,actualOptions);
     }
 
-    @Then("user should see {string} option is displayed")
-    public void user_should_see_option_is_displayed(String option) {
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.fileOption);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.appreciationOption);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.announcementOption);
-        BrowserUtils.verifyElementDisplayed(activityStreamPage.workflowOption);
+    @When("user clicks {string} under more in activity stream")
+    public void user_clicks_under_more_in_activity_stream(String activity) {
+        activityStreamPage.selectMoreOption(activity);
     }
 
+    @Then("user should see the following options under more tab on the Activity Stream page")
+    public void user_should_see_the_following_options_under_more_tab_on_the_activity_stream_page(List<String> expectedMoreOptions) {
+        List<String> actualMoreOptions=  CRMUtils.getElementsAttribute("data-name",activityStreamPage.moreOptions);
+        Assert.assertEquals(expectedMoreOptions,actualMoreOptions);
+    }
 }

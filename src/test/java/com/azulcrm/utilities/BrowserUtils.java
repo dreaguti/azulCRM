@@ -16,22 +16,21 @@ import java.util.Set;
 
 public class BrowserUtils {
 
-
     /*
-    This method will accept int (in seconds)
-    and execute Thread.sleep method for given duration
-    Arg: int second
-     */
-    public static void sleep(int second){
+  This method will accept int (in seconds)
+  and execute Thread.sleep method for given duration
+  Arg: int second
+   */
+    public static void sleep(int second) {
         second *= 1000;
-        try{
+        try {
             Thread.sleep(second);
-        }catch (InterruptedException e){
-
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void switchWindowAndVerify(String expectedInURL, String expectedInTitle){
+    public static void switchWindowAndVerify(String expectedInURL, String expectedInTitle) {
 
         //Return and store all window handles in a Set.
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
@@ -41,7 +40,7 @@ public class BrowserUtils {
             Driver.getDriver().switchTo().window(each);
             System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
 
-            if (Driver.getDriver().getCurrentUrl().contains(expectedInURL )){
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInURL)) {
                 break;
             }
         }
@@ -51,10 +50,11 @@ public class BrowserUtils {
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
     }
 
-    public static void verifyTitle(String expectedTitle){
+    public static void verifyTitle(String expectedTitle) {
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
     }
-    public static void verifyTitleContains( String expectedInTitle){
+
+    public static void verifyTitleContains(String expectedInTitle) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedInTitle));
     }
 
@@ -62,7 +62,7 @@ public class BrowserUtils {
     This method accepts WebElement target,
     and waits for that WebElement not to be displayed on the page
      */
-    public static void waitForInvisibilityOf(WebElement target){
+    public static void waitForInvisibilityOf(WebElement target) {
         //Create the object of 'WebDriverWait' class, and set up the constructor args
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
@@ -74,7 +74,7 @@ public class BrowserUtils {
     This method accepts String title,
     and waits for that Title to contain given String value.
      */
-    public static void waitForTitleContains(String title){
+    public static void waitForTitleContains(String title) {
         //Create the object of 'WebDriverWait' class, and set up the constructor args
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
@@ -84,10 +84,10 @@ public class BrowserUtils {
 
     /**
      * This method accepts a dropdown element and returns a List<String> that contains all options values as String.
-     * @param dropdownElement
-     * @return actualMonth_as_STRING
+     * . @param dropdownElement
+     * . @return actualMonth_as_STRING
      */
-    public static List<String> dropdownOptions_as_STRING(WebElement dropdownElement){
+    public static List<String> dropdownOptions_as_STRING(WebElement dropdownElement) {
 
         Select month = new Select(dropdownElement);
         //Storing all the ACTUAL options into a List of WebElements
@@ -107,9 +107,9 @@ public class BrowserUtils {
 
     }
 
-    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue){
+    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue) {
         for (WebElement each : radioButtons) {
-            if(each.getAttribute("value").equalsIgnoreCase(attributeValue)){
+            if (each.getAttribute("value").equalsIgnoreCase(attributeValue)) {
                 each.click();
             }
         }
@@ -117,15 +117,15 @@ public class BrowserUtils {
 
     /**
      * This method will accept a String as expected value and verify actual URL CONTAINS the value.
-     * @param expectedInURL
+     * . @param expectedInURL
      */
-    public static void verifyURLContains(String expectedInURL){
+    public static void verifyURLContains(String expectedInURL) {
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInURL));
     }
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
-     * @param targetTitle
+     * . @param targetTitle
      */
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
@@ -140,8 +140,8 @@ public class BrowserUtils {
 
     /**
      * Moves the mouse to given element
-     *
-     * @param element on which to hover
+     * <p>
+     * . @param element on which to hover
      */
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
@@ -150,9 +150,9 @@ public class BrowserUtils {
 
     /**
      * return a list of string from a list of elements
-     *
-     * @param list of webelements
-     * @return list of string
+     * <p>
+     * .@param list of webelements
+     * . @return list of string
      */
     public static List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();
@@ -164,9 +164,9 @@ public class BrowserUtils {
 
     /**
      * Extracts text from list of elements matching the provided locator into new List<String>
-     *
-     * @param locator
-     * @return list of strings
+     * <p>
+     * . @param locator
+     * . @return list of strings
      */
     public static List<String> getElementsText(By locator) {
 
@@ -181,8 +181,8 @@ public class BrowserUtils {
 
     /**
      * Performs a pause
-     *
-     * @param seconds
+     * <p>
+     * . @param seconds
      */
     public static void waitFor(int seconds) {
         try {
@@ -194,10 +194,10 @@ public class BrowserUtils {
 
     /**
      * Waits for the provided element to be visible on the page
-     *
-     * @param element
-     * @param time
-     * @return
+     * <p>
+     * . @param element
+     * . @param time
+     * . @return
      */
     public static WebElement waitForVisibility(WebElement element, int time) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
@@ -206,10 +206,10 @@ public class BrowserUtils {
 
     /**
      * Waits for element matching the locator to be visible on the page
-     *
-     * @param locator
-     * @param time
-     * @return
+     * <p>
+     * . @param locator
+     * . @param time
+     * . @return
      */
     public static WebElement waitForVisibility(By locator, int time) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
@@ -218,10 +218,10 @@ public class BrowserUtils {
 
     /**
      * Waits for provided element to be clickable
-     *
-     * @param element
-     * @param time
-     * @return
+     * <p>
+     * . @param element
+     * . @param time
+     * . @return
      */
     public static WebElement waitForClickablility(WebElement element, int time) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
@@ -230,10 +230,10 @@ public class BrowserUtils {
 
     /**
      * Waits for element matching the locator to be clickable
-     *
-     * @param locator
-     * @param time
-     * @return
+     * <p>
+     * . @param locator
+     * . @param time
+     * . @return
      */
     public static WebElement waitForClickablility(By locator, int time) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
@@ -242,8 +242,8 @@ public class BrowserUtils {
 
     /**
      * waits for backgrounds processes on the browser to complete
-     *
-     * @param time
+     * <p>
+     * . @param time
      */
     public static void waitForPageToLoad(long time) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
@@ -261,9 +261,9 @@ public class BrowserUtils {
 
     /**
      * Verifies whether the element matching the provided locator is displayed on page
-     *
-     * @param by
-     * @throws AssertionError if the element matching the provided locator is not found or not displayed
+     * <p>
+     * . @param by
+     * . @throws AssertionError if the element matching the provided locator is not found or not displayed
      */
     public static void verifyElementDisplayed(By by) {
         try {
@@ -277,9 +277,9 @@ public class BrowserUtils {
 
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
-     *
-     * @param by
-     * @throws AssertionError the element matching the provided locator is displayed
+     * <p>
+     * . @param by
+     * . @throws AssertionError the element matching the provided locator is displayed
      */
     public static void verifyElementNotDisplayed(By by) {
         try {
@@ -293,9 +293,9 @@ public class BrowserUtils {
 
     /**
      * Verifies whether the element is displayed on page
-     *
-     * @param element
-     * @throws AssertionError if the element is not found or not displayed
+     * <p>
+     * .@param element
+     * . @throws AssertionError if the element is not found or not displayed
      */
     public static void verifyElementDisplayed(WebElement element) {
         try {
@@ -307,11 +307,38 @@ public class BrowserUtils {
         }
     }
 
+    /**
+     * Verfies element is not present
+     *
+     * @param element
+     * @return
+     */
+
+
+    /* second way
+    @Then("the user should not see New folder")
+    public void theUserShouldNotSeeNewFolder() {
+
+        try {
+            uploadEPage.newFolder.isDisplayed();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            String exceptionMessage = e.getMessage();
+            Assert.assertTrue(exceptionMessage.contains("NoSuchElementException"));
+        }
+
+
+        //third way, use findElements() method when locating and verify if the size is O
+        Assert.assertEquals(uploadPage.listOfNewFolder.size(), 0);
+
+    }
+
+     */
 
     /**
      * Waits for element to be not stale
-     *
-     * @param element
+     * <p>
+     * . @param element
      */
     public static void waitForStaleElement(WebElement element) {
         int y = 0;
@@ -341,8 +368,8 @@ public class BrowserUtils {
 
     /**
      * Clicks on an element using JavaScript
-     *
-     * @param element
+     * <p>
+     * . @param element
      */
     public static void clickWithJS(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -352,8 +379,8 @@ public class BrowserUtils {
 
     /**
      * Scrolls down to an element using JavaScript
-     *
-     * @param element
+     * <p>
+     * . @param element
      */
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -361,8 +388,8 @@ public class BrowserUtils {
 
     /**
      * Performs double click action on an element
-     *
-     * @param element
+     * <p>
+     * . @param element
      */
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
@@ -370,10 +397,10 @@ public class BrowserUtils {
 
     /**
      * Changes the HTML attribute of a Web Element to the given value using JavaScript
-     *
-     * @param element
-     * @param attributeName
-     * @param attributeValue
+     * <p>
+     * . @param element
+     * . @param attributeName
+     * . @param attributeValue
      */
     public static void setAttribute(WebElement element, String attributeName, String attributeValue) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attributeName, attributeValue);
@@ -381,7 +408,7 @@ public class BrowserUtils {
 
     /**
      * Highlighs an element by changing its background and border color
-     * @param element
+     * . @param element
      */
     public static void highlight(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
@@ -391,9 +418,9 @@ public class BrowserUtils {
 
     /**
      * Checks or unchecks given checkbox
-     *
-     * @param element
-     * @param check
+     * <p>
+     * . @param element
+     * . @param check
      */
     public static void selectCheckBox(WebElement element, boolean check) {
         if (check) {
@@ -409,9 +436,9 @@ public class BrowserUtils {
 
     /**
      * attempts to click on provided element until given time runs out
-     *
-     * @param element
-     * @param timeout
+     * <p>
+     * . @param element
+     * . @param timeout
      */
     public static void clickWithTimeOut(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
@@ -426,8 +453,8 @@ public class BrowserUtils {
 
     /**
      * executes the given JavaScript command on given web element
-     *
-     * @param element
+     * <p>
+     * . @param element
      */
     public static void executeJScommand(WebElement element, String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
@@ -435,16 +462,10 @@ public class BrowserUtils {
 
     }
 
-
-    public static void switchToFrame(WebElement frameElement) {
-        Driver.getDriver().switchTo().frame(frameElement);
-
-    }
-
     /**
      * executes the given JavaScript command on given web element
-     *
-     * @param command
+     * <p>
+     * . @param command
      */
     public static void executeJScommand(String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
@@ -452,12 +473,13 @@ public class BrowserUtils {
 
     }
 
+
     /**
      * This method will recover in case of exception after unsuccessful the click,
      * and will try to click on element again.
-     *
-     * @param by
-     * @param attempts
+     * <p>
+     * . @param by
+     * . @param attempts
      */
     public static void clickWithWait(By by, int attempts) {
         int counter = 0;
@@ -481,14 +503,95 @@ public class BrowserUtils {
     }
 
     /**
-     *  checks that an element is present on the DOM of a page. This does not
-     *    * necessarily mean that the element is visible.
-     * @param by
-     * @param time
+     * checks that an element is present on the DOM of a page. This does not
+     * * necessarily mean that the element is visible.
+     * . @param by
+     * . @param time
      */
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static WebElement getElementWithText(String txt) {
 
+        WebElement element = Driver.getDriver().findElement(By.xpath("//*[contains(.,'" + txt + "')]"));
+        return element;
+
+    }
+
+    public static String getAttributeValue(WebElement webElement, String attribute) {
+
+        return webElement.getAttribute(attribute);
+    }
+
+    public static void clickButton(String buttonName) {
+        Driver.getDriver().findElement(By.cssSelector("input[value='" + buttonName + "']")).click();
+    }
+
+    public static void clickWithText(List<WebElement> elements, String txt) {
+
+        for (WebElement element : elements) {
+
+            if (element.getText().equals(txt)) {
+                element.click();
+                break;
+            }
+        }
+
+    }
+
+    public static void navigateToBack() {
+        Driver.getDriver().navigate().back();
+    }
+
+
+    public static void clickElementWithPartOfId(String id) {
+        waitFor(3);
+        String locator = "(//*[contains(@id,'" + id + "')])";
+        Driver.getDriver().findElement(By.xpath(locator)).click();
+    }
+
+    public static void clickElementWithExactId(String id) {
+        waitFor(3);
+        Driver.getDriver().findElement(By.id(id)).click();
+    }
+
+    public static void clickElementWithExactClassName(String className) {
+        waitFor(3);
+        WebElement element = Driver.getDriver().findElement(By.className(className));
+        waitForVisibility(element,20);
+        waitForClickablility(element,20);
+        element.click();
+    }
+
+    public static void switchToFrame(String nameOrId) {
+        Driver.getDriver().switchTo().frame(nameOrId);
+    }
+
+    public static void switchToFrame(WebElement frameElement) {
+        Driver.getDriver().switchTo().frame(frameElement);
+    }
+
+    public static void switchToFrame(int index) {
+        Driver.getDriver().switchTo().frame(index);
+    }
+
+    public static void switchToDefaultContent() {
+        Driver.getDriver().switchTo().defaultContent();
+    }
+
+    public static WebElement findElementWithClass(String className) {
+        return Driver.getDriver().findElement(By.className(className));
+    }
+
+    public static void typesWithExactId(String message, String id) {
+        waitFor(2);
+        Driver.getDriver().findElement(By.id(id)).sendKeys(message);
+    }
+
+    public static int getWindowSize() {
+
+        return Driver.getDriver().getWindowHandles().size();
+
+    }
 }

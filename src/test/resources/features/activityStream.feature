@@ -13,14 +13,18 @@ Feature: Users should be able to see all options on the Activity Stream Page
   More
 
     And user is logged in as "<userType>" user
-    And user is on the Activity Stream page
-    Then user should see "<headerText>" is displayed
-
+    And user clicks "Activity Stream"
+    Then user should see the following options on the Activity Stream page
+      | MESSAGE |
+      | TASK    |
+      | EVENT   |
+      | POLL    |
+      | MORE    |
     Examples:
-      | userType  | headerText                       |
-      | hr        | Message, Text, Event, Poll, More |
-      | helpdesk  | Message, Text, Event, Poll, More |
-      | marketing | Message, Text, Event, Poll, More |
+      | userType  |
+      | hr        |
+      | helpdesk  |
+      | marketing |
 
 # AC2 -  Activity Stream Page - More Options Verification
   Scenario Outline: Verify that <userType> user can view the following 4 options under the MORE tab.
@@ -30,12 +34,15 @@ Feature: Users should be able to see all options on the Activity Stream Page
   Workflow
 
     And user is logged in as "<userType>" user
-    And user is on the Activity Stream page
-    And clicks on More dropdown
-    Then user should see "<option>" is displayed
-
+    And user clicks "Activity Stream"
+    And user clicks "More" in Activity Stream
+    Then user should see the following options on the Activity Stream page
+      | File         |
+      | Appreciation |
+      | Announcement |
+      | Workflow     |
     Examples:
-      | userType  | option                                 |
-      | hr        | File, Appreciation, Announcement, Poll |
-      | helpdesk  | File, Appreciation, Announcement, Poll |
-      | marketing | File, Appreciation, Announcement, Poll |
+      | userType  |
+      | hr        |
+      | helpdesk  |
+      | marketing |
