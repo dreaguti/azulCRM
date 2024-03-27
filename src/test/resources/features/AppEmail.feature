@@ -1,18 +1,18 @@
-@AppEmail
+@B32G21-172
 Feature: Appreciation email functionality
 
 
-@crm21
+@B32G21-167
   Scenario: user sees the warning messages for Adding at least one Person
-
-    When user navigate to "more" module
+    Given user is on the login page
+    When user navigate to "MORE" module
     And user select "Appreciation" from the  more button
     And user click on the All employees to remove the Default
     And  user write "Well Friend! You are now UI automation tester" in the email body
     And user click the "sendButton"
     Then user sees the "Please specify at least one person." message
 
-@crm22
+@B32G21-168
   Scenario: user sees the warning messages for title specify
 
     When user navigate to "more" module
@@ -22,7 +22,7 @@ Feature: Appreciation email functionality
     Then user see the "The message title is not specified" message
 
 
-  @crm23
+  @B32G21-169
   Scenario: user sees the All employees in default
 
     When user navigate to "more" module
@@ -30,7 +30,7 @@ Feature: Appreciation email functionality
     Then user sees "All employees" is displayed in default
 
 
-    @crmOutline
+    @B32G21-171
     Scenario: Verify email looks cancelable before sending
     When user navigate to "more" module
     And user select "Appreciation" from the  more button
