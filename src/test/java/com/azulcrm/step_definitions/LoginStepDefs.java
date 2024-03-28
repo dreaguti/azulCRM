@@ -3,6 +3,9 @@ package com.azulcrm.step_definitions;
 import com.azulcrm.pages.LoginPage;
 import com.azulcrm.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 public class LoginStepDefs {
 
 
@@ -38,7 +41,9 @@ public class LoginStepDefs {
     }
 
 
-
+    @Then("user sees the {string} option is selected by defaul.")
+    public void userSeesTheAllEmployeesOptionIsSelectedByDefaul() {
+    }
 
 
 }
